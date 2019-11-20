@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @landmark.image_url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @landmark.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @landmark.location %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @landmark.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @landmark.price %>
+</p>
+
+<%= link_to 'Edit', edit_landmark_path(@landmark) %> |
+<%= link_to 'Back', landmarks_path %>
