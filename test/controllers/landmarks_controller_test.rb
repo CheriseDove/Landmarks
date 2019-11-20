@@ -17,7 +17,7 @@ class LandmarksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create landmark" do
     assert_difference('Landmark.count') do
-      post landmarks_url, params: { landmark: { description: @landmark.description, image_url: @landmark.image_url, location: @landmark.location, name: @landmark.name, price: @landmark.price } }
+      post landmarks_url, params: { landmark: { description: @landmark.description, image_url: @landmark.image_url, location: @landmark.location, name: "landmarkname", price: @landmark.price } }
     end
 
     assert_redirected_to landmark_url(Landmark.last)
