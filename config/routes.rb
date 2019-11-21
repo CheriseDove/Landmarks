@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :line_landmarks
   resources :lists
   get 'attractions/index'
   root to: 'attractions#index', as: 'attractions'

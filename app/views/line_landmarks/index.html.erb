@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Line Landmarks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Landmark</th>
+      <th>List</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @line_landmarks.each do |line_landmark| %>
+      <tr>
+        <td><%= line_landmark.landmark_id %></td>
+        <td><%= line_landmark.list_id %></td>
+        <td><%= link_to 'Show', line_landmark %></td>
+        <td><%= link_to 'Edit', edit_line_landmark_path(line_landmark) %></td>
+        <td><%= link_to 'Destroy', line_landmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Line Landmark', new_line_landmark_path %>

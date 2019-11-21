@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Landmark:</strong>
+  <%= @line_landmark.landmark_id %>
+</p>
+
+<p>
+  <strong>List:</strong>
+  <%= @line_landmark.list_id %>
+</p>
+
+<%= link_to 'Edit', edit_line_landmark_path(@line_landmark) %> |
+<%= link_to 'Back', line_landmarks_path %>
