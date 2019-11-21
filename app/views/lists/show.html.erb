@@ -1,4 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
+<h2> Your Must Visit List </h2>
+<ul>
+  <% @list.line_landmarks.each do |item| %>
+    <li><%= item.landmark.name %></li>
+  <% end %>
+</ul>
+
+
+<%=link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>

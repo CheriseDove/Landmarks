@@ -1,4 +1,6 @@
 class LineLandmarksController < ApplicationController
+  include CurrentList
+  before_action :set_list, only: [:create]
   before_action :set_line_landmark, only: [:show, :edit, :update, :destroy]
 
   # GET /line_landmarks
@@ -24,11 +26,12 @@ class LineLandmarksController < ApplicationController
   # POST /line_landmarks
   # POST /line_landmarks.json
   def create
-    @line_landmark = LineLandmark.new(line_landmark_params)
+    landmark = Landmark.find(params[:landmark_id])
+    @line_landmark = @list.add_landmark(landmark)
 
     respond_to do |format|
       if @line_landmark.save
-        format.html { redirect_to @line_landmark, notice: 'Line landmark was successfully created.' }
+        format.html { redirect_to @line_landmark.list, notice: 'Line landmark was successfully created.' }
         format.json { render :show, status: :created, location: @line_landmark }
       else
         format.html { render :new }

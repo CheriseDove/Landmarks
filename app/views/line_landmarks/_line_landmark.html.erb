@@ -1,0 +1,9 @@
+<%= render @list.line_landmarks %>
+
+<% if line_landmark == @current_item %>
+  <tr class="line-item-highlight">
+<% else %>
+  <td><%= line_landmark.quantity %>&times;</td>
+  <td><%= line_landmark.landmark.name %></td>
+  <td class="item_price"><%= number_to_currency(line_landmark.total_price) %></td>
+</tr>

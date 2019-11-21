@@ -19,6 +19,11 @@
               <ul>
                 <li><%= link_to 'Landmarks', landmarks_path %></li>
               </ul>
+              <% if @list %>
+          <div id="list" class="lists">
+            <%= render_if @list && @list.line_landmarks.any?, @list %>
+          </div>
+        <% end %>
 
           <ul>
             <li><a href="/">Home</a></li>

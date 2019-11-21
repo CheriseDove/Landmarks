@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_182641) do
+ActiveRecord::Schema.define(version: 2019_11_21_210239) do
 
   create_table "landmarks", force: :cascade do |t|
     t.string "image_url"
@@ -23,10 +23,11 @@ ActiveRecord::Schema.define(version: 2019_11_21_182641) do
   end
 
   create_table "line_landmarks", force: :cascade do |t|
-    t.integer "landmark_id", null: false
-    t.integer "list_id", null: false
+    t.integer "landmark_id"
+    t.integer "list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "quantity", default: 1
     t.index ["landmark_id"], name: "index_line_landmarks_on_landmark_id"
     t.index ["list_id"], name: "index_line_landmarks_on_list_id"
   end
