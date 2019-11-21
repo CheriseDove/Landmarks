@@ -1,6 +1,6 @@
 body {
   background-color: #fff;
-  color: #333;
+  color: black;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -20,15 +20,15 @@ pre {
 }
 
 a {
-  color: #000;
+  color: black;
 
   &:visited {
-    color: #666;
+    color: grey;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: gold;
+    background-color: white;
   }
 }
 
@@ -42,12 +42,13 @@ td {
 
 div {
   &.field, &.actions {
+    color: #660000;
     margin-bottom: 10px;
   }
 }
 
 #notice {
-  color: green;
+  color: gold;
 }
 
 .field_with_errors {

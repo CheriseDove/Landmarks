@@ -1,3 +1,57 @@
-// Place all the styles related to the attractions controller here.
+// Place all the styles related to the store controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.attractions {
+  max-width: 50em;
+
+ul.catalog {
+  border-top: solid 0.250em;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding: 1em;
+    margin: 0;
+    border-bottom: solid thin #ddd;
+
+    &::after {
+      clear: both;
+      content: " ";
+      display: block;
+    }
+
+    img {
+      max-width:55%;
+      //max-height:50%;
+      float: left;
+      padding: 1em;
+      margin-right: 1em;
+      margin-bottom: 1em;
+      box-shadow: 0.176em 0.176em 0.354em 0px rgba(0,0,0,0.75);
+    }
+
+    .price {
+      font-size: 1.414em;
+    }
+
+    form, div {
+  display: inline;
+}
+
+input[type="submit"] {
+  background-color: #282;
+  border-radius: 0.354em;
+  border: solid thin #141;
+  color: white;
+  font-size: 1em;
+  padding: 0.354em 1em;
+}
+
+input[type="submit"]:hover {
+  background-color: #141;
+}
+
+}//li
+}//ui
+} //store

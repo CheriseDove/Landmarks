@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Landmarks</title>
+    <title>Tourist Attractions in Newcastle </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+    <body>
+      <header class="main">
+        <h1><%= @page_title %></h1>
+        </header>
+      <section class="content">
+        <nav class="side_nav">
+          <%= image_tag 'landmarklogo.png', alt: 'Historic Attractions' %>
 
-  <body>
+              <ul>
+                <li><%= link_to 'Landmarks', landmarks_path %></li>
+              </ul>
+
+          <ul>
+            <li><a href="/">Home</a></li>
+          </ul>
+        </nav>
+
+  <%= content_tag :main, class: controller.controller_name do %>
     <%= yield %>
-  </body>
+  <% end %>
+    </section>
+</body>
+
 </html>
