@@ -1,4 +1,9 @@
 class ListsController < ApplicationController
+rescue_from ActiveRecord::RecordNotFound, with: :invalid_list
+  def invalid_list
+  logger.error "Attempt to access invalid list #{params[:id]}"
+  redirect_to attractions_url, notice: 'Invalid list'
+end
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   # GET /lists
