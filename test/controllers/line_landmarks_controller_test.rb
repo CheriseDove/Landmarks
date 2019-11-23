@@ -17,10 +17,10 @@ class LineLandmarksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create line_landmark" do
     assert_difference('LineLandmark.count') do
-      post line_landmarks_url, params: { line_landmark: { landmark_id: @line_landmark.landmark_id, list_id: @line_landmark.list_id } }
+      post :create, landmark_id: landmarks("Castle Keep")
     end
 
-    assert_redirected_to line_landmark_url(LineLandmark.last)
+    assert_redirected_to list_path(assigns(:line_landmark).list)
   end
 
   test "should show line_landmark" do
@@ -34,8 +34,10 @@ class LineLandmarksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update line_landmark" do
-    patch line_landmark_url(@line_landmark), params: { line_landmark: { landmark_id: @line_landmark.landmark_id, list_id: @line_landmark.list_id } }
-    assert_redirected_to line_landmark_url(@line_landmark)
+    patch line_landmark_url(@line_landmark), params: {
+  line_landmark: { landmark_id: @line_landmark.landmark_id }
+  }
+  assert_redirected_to list_path(@line_landmark.list)
   end
 
   test "should destroy line_landmark" do

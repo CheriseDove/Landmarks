@@ -1,14 +1,15 @@
 
 <h2>Your Must Visit List</h2>
 <table>
-  <% @list.line_landmarks.each do |item| %>
+  <% @list.line_landmarks.each do |list| %>
     <tr>
-      <td><%= item.quantity %> &times; </td>
-      <td><%= item.landmark.name %></td>
+      <td><%= list.quantity %> &times; </td>
+      <td><%= list.landmark.name %></td>
       <td class="item_price">
-        <%= number_to_currency(item.total_price) %> </td>
+        <%= number_to_currency(list.total_price) %> </td>
     </tr>
   <% end %>
+
 
   <tr class="total_line">
     <td colspan="2"> Total </td>
