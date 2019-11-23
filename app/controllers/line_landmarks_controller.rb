@@ -27,15 +27,13 @@ class LineLandmarksController < ApplicationController
   # POST /line_landmarks.json
   def create
     landmark = Landmark.find(params[:landmark_id])
-    #@line_landmark = @list.line_landmarks.build(landmark: landmark)
-   @line_landmark = @list.add_landmark(landmark)
+    @line_landmark = @list.add_landmark(landmark)
 
     respond_to do |format|
       if @line_landmark.save
-        #format.html { redirect_to attractions_url}
-        format.html {redirect_to @line_landmark.list}
+        format.html { redirect_to attractions_url,  notice: 'Landmark was successfully added'}
         format.js { @current_item = @line_landmark }
-        format.json { render :show, status: :created, location: @line_landmark.list }
+        format.json { render :show, status: :created, location: @line_landmark}
       else
         format.html { render :new }
         format.json { render json: @line_landmark.errors, status: :unprocessable_entity }
@@ -48,8 +46,8 @@ class LineLandmarksController < ApplicationController
   def update
     respond_to do |format|
       if @line_landmark.update(line_landmark_params)
-        format.html { redirect_to @line_landmark.list , notice: 'Line landmark was successfully updated.' }
-        format.json { render :show, status: :ok, location: @line_landmark }
+        format.html { redirect_to @line_landmark , notice: 'Line landmark was successfully updated.' }
+        format.json { render :show, status: :ok, location: @line_landmark}
       else
         format.html { render :edit }
         format.json { render json: @line_landmark.errors, status: :unprocessable_entity }

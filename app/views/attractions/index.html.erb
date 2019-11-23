@@ -11,9 +11,10 @@
       <h2><%= landmark.name %></h2>
       <p><%= sanitize landmark.location %></p>
       <p><%= sanitize landmark.description %></p>
-      <div class="price"><%= number_to_currency(landmark.price) %>
-        <%= button_to 'Visit?', line_landmarks_path(landmark_id: landmark) %>
+      <div class="price">
+        <%= number_to_currency landmark.price, unit: '€' %>
+        <%= button_to 'Visit?', line_landmarks_path(landmark_id: landmark), remote: true %>
       </div>
-    </li>
+      </li>
     <% end %>
 </ul>

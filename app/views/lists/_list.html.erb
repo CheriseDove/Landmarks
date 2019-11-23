@@ -1,25 +1,15 @@
-
 <h2>Your Must Visit List</h2>
 <table>
-  <% @list.line_landmarks.each do |list| %>
-    <tr>
-      <td><%= list.quantity %> &times; </td>
-      <td><%= list.landmark.name %></td>
-      <td class="item_price">
-        <%= number_to_currency(list.total_price) %> </td>
-    </tr>
-  <% end %>
-
+<%= render list.line_landmarks %>
 
   <tr class="total_line">
     <td colspan="2"> Total </td>
     <td class="total_cell"><%= number_to_currency(list.total_price) %></td>
   </tr>
 </table>
-
-<div class="actions">
-<ul>
+<div class="actions" >
   <%= button_to 'Empty List', list, method: :delete,
       data: { confirm: 'Are you sure?' } %>
-</ul>
+
+  <%= button_to 'Book Now', new_book_now_path, method: :get, class: "Book Now" %>
 </div>

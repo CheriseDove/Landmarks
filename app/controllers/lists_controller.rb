@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
-rescue_from ActiveRecord::RecordNotFound, with: :invalid_list
   before_action :set_list, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_list
 
   # GET /lists
   # GET /lists.json
@@ -55,9 +55,10 @@ rescue_from ActiveRecord::RecordNotFound, with: :invalid_list
   # DELETE /lists/1
   # DELETE /lists/1.json
   def destroy
-    @list.destroy
+    @list.destroy if @list.id == session[:list_id]
+    session[:list_id] = nil
     respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
+      format.html { redirect_to attractions_url }
       format.json { head :no_content }
     end
   end

@@ -16,18 +16,20 @@
         <nav class="side_nav">
           <%= image_tag 'landmarklogo.png', alt: 'Historic Attractions' %>
 
-              <ul>
-                <li><%= link_to 'Landmarks', landmarks_path %></li>
-              </ul>
-              <% if @list %>
-                <div id="list" class="lists">
-                    <%= render_if @list && @list.line_landmarks.any?, @list %>
-                </div>
-              <% end %>
+          <% if @list %>
+            <div id="list" class="lists">
+                <%= render_if @list && @list.line_landmarks.any?, @list %>
+            </div>
+          <% end %>
 
           <ul>
             <li><a href="/">Home</a></li>
           </ul>
+
+              <ul>
+                <li><%= link_to 'Landmarks', landmarks_path %></li>
+              </ul>
+
         </nav>
 
   <%= content_tag :main, class: controller.controller_name do %>
