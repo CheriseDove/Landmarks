@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, id: :book_now_name, size: 40 %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, id: :book_now_email %>
   </div>
 
   <div class="field">
     <%= form.label :phone %>
-    <%= form.number_field :phone %>
+    <%= form.number_field :phone,id: :book_now_phone, size: 40 %>
   </div>
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, id: :book_now_address, rows: 3, cols: 40  %>
   </div>
 
   <div class="actions">
