@@ -34,6 +34,7 @@ class LineLandmarksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update line_landmark" do
+    @line_landmark = new @line_landmark
     patch line_landmark_url(@line_landmark), params: {
   line_landmark: { landmark_id: @line_landmark.landmark_id }
   }
@@ -47,4 +48,11 @@ class LineLandmarksControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to line_landmarks_url
   end
+  test "should create line landmark via ajax" do
+  assert_difference('LineLandmark.count') do
+    post line_landmarks_url, params: { landmark_id: landmarks(:one).id },
+         xhr: true
+  end
+  assert_response :success
+end
 end

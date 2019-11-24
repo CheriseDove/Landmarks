@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorize
+
   def new
   end
 
   def create
     username = User.find_by(username: params[:username])
     if username.try(:authenticate, params[:password])
-      session[:user_id] = user.id
+      session[:user_id] = username.id
       redirect_to admin_url
     else
       redirect_to login_url, alert: "Invalid username/password combination"

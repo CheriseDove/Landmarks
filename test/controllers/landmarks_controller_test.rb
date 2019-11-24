@@ -45,4 +45,13 @@ class LandmarksControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to landmarks_url
   end
+
+  test "can't delete landmark in cart" do
+  assert_difference('Landmark.count',-1 ) do
+    delete landmark_url(@landmark)
+end
+
+  assert_redirected_to landmarks_url
+end
+
 end

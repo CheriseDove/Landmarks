@@ -15,32 +15,32 @@
       <section class="content">
         <nav class="side_nav">
           <%= image_tag 'landmarklogo.png', alt: 'Historic Attractions' %>
+          <ul>
+          <li><%=link_to 'Log in', login_path %></li>
+          </ul>
 
           <% if session[:user_id] %>
             <nav class="logged_in_nav">
               <ul>
-                <li><%= link_to 'Booked Orders',   book_nows_path   %></li>
+                <li><%='Admin:'%></li>
+                <li><%= link_to 'Booked Lists',   book_nows_path   %></li>
                 <li><%= link_to 'Landmarks', landmarks_path %></li>
                 <li><%= link_to 'Users',    users_path    %></li>
                 <li><%= button_to 'Logout', logout_path, method: :delete   %></li>
               </ul>
             </nav>
           <% end %>
-          
-          <% if @list %>
-            <div id="list" class="lists">
-                <%= render_if @list && @list.line_landmarks.any?, @list %>
-            </div>
-          <% end %>
 
-          <ul>
-            <li><a href="/">Home</a></li>
-          </ul>
 
               <ul>
+                <li><a href="/">Home</a></li>
                 <li><%= link_to 'Landmarks', landmarks_path %></li>
               </ul>
-
+              <% if @list %>
+                <div id="list" class="lists">
+                    <%= render_if @list && @list.line_landmarks.any?, @list %>
+                </div>
+              <% end %>
         </nav>
 
   <%= content_tag :main, class: controller.controller_name do %>

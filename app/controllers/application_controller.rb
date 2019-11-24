@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :authorize
   protected
+  before_action :authorize
 
 def authorize
   unless User.find_by(id: session[:user_id])

@@ -40,9 +40,10 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy list" do
     assert_difference('List.count', -1) do
+      session[:list_id] = @list.id
       delete list_url(@list)
     end
 
-    assert_redirected_to lists_url
+    assert_redirected_to attractions_pathurl
   end
 end

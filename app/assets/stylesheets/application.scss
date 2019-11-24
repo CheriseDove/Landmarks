@@ -55,6 +55,7 @@
     -webkit-box-orient: horizontal;
   }
   nav {
+
     #list {
   h2 {
     margin-top: 0;
@@ -81,7 +82,9 @@
       @media (min-width: 30em) {
         padding-right: 1em; // give desktop some extra space
       }
+      border-top: solid thin #ffffbb;
       li {
+        color: gold;
         margin: 0;
         padding: 0.5em;
         text-transform: uppercase;
@@ -186,14 +189,16 @@ nav.logged_in_nav {
     // link, so it matches the nav style
     background: none;
     border: none;
-    color: #bfb;
+    color: white;
     font-size: 1em;
     letter-spacing: 0.354em;
     margin: 0;
     padding: 0;
     text-transform: uppercase;
+
   }
   input[type="submit"]:hover {
     color: gold;
   }
+
 }

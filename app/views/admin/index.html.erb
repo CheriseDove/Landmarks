@@ -4,3 +4,12 @@
   It's <%= Time.now %>.
   We have <%= pluralize(@total_book_nows, "order") %>.
 </p>
+<h2>Our Most recent Booking was by: </h2>
+<p>
+        <td><%= 'Name:'%>
+        <td><%= @book_now.name %></td>
+        <p><p>
+        <td><%= "Email:" %></td>
+        <td><%= @book_now.email %></td>
+
+        <p>
