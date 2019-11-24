@@ -28,10 +28,16 @@ class BookNowsController < ApplicationController
   # POST /book_nows.json
   def create
     @book_now = BookNow.new(book_now_params)
+    @book_now.add_line_landmarks_from_list(@list)
 
     respond_to do |format|
       if @book_now.save
-        format.html { redirect_to @book_now, notice: 'Book now was successfully created.' }
+        List.destroy(session[:list_id])
+        session[:list_id] = nil
+
+        format.html {
+          redirect_to attractions_url, notice: 'Thank you for Booking. You will recieve your details via email in a few moments.'
+        }
         format.json { render :show, status: :created, location: @book_now }
       else
         format.html { render :new }

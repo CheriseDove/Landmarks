@@ -61,6 +61,17 @@ class LandmarksController < ApplicationController
     end
   end
 
+  def who_bought
+  @landmark = Landmark.find(params[:id])
+  @latest_book_now = @landmark.book_nows.book_now(:updated_at).last
+  if stale?(@latest_book_now)
+    respond_to do |format|
+      format.atom
+    end
+  end
+end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_landmark
