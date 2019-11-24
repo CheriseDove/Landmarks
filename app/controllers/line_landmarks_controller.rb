@@ -1,4 +1,5 @@
 class LineLandmarksController < ApplicationController
+  skip_before_action :authorize, only: :create
   include CurrentList
   before_action :set_list, only: [:create]
   before_action :set_line_landmark, only: [:show, :edit, :update, :destroy]

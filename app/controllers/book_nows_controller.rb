@@ -1,4 +1,5 @@
 class BookNowsController < ApplicationController
+  skip_before_action :authorize, only: [:new, :create]
   include CurrentList
   before_action :set_list, only: [:new, :create]
   before_action :ensure_list_isnt_empty, only: :new
