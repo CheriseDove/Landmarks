@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :book_nows
   resources :line_landmarks
   resources :lists
