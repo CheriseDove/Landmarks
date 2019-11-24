@@ -34,7 +34,7 @@ class LineLandmarksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update line_landmark" do
-    @line_landmark = new @line_landmark
+    #@line_landmark = new @line_landmark
     patch line_landmark_url(@line_landmark), params: {
   line_landmark: { landmark_id: @line_landmark.landmark_id }
   }

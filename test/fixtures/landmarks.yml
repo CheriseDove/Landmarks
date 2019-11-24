@@ -13,3 +13,10 @@ two:
   location: MyString2
   description: MyString2
   price: 1
+
+Castle Keep:
+  image_url: MyString2.jpg
+  name: Castle Keep
+  location: MyString2
+  description: MyString2
+  price: 1

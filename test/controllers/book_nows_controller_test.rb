@@ -8,7 +8,7 @@ class BookNowsControllerTest < ActionDispatch::IntegrationTest
   test "requires landmark in list" do
       get new_book_now_url
       assert_redirected_to attractions_path
-      assert_equal flash[:notice], 'Your list is empty'
+      assert_equal flash[:notice], 'You have nothing in your list'
     end
 
   test "should get index" do
